@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPH Journal — Studies in Policy & Health Economics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy-primary: #0a1628;
+            --navy-dark: #060f1d;
+            --navy-medium: #132240;
+            --navy-light: #1a3058;
+            --slate-border: #c8ced6;
+            --slate-light: #e2e6eb;
+            --slate-muted: #8a929c;
+            --text-primary: #1a1a2e;
+            --text-secondary: #3d4555;
+            --text-muted: #6b7280;
+            --white: #ffffff;
+            --off-white: #f7f8fa;
+            --accent-gold: #b8860b;
+            --accent-green: #1a6b3c;
+            --accent-red: #8b1a1a;
+            --link-blue: #1a4a8a;
+        }
+
+        html {
+            font-size: 15px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
+            background-color: var(--off-white);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ====== TOP MASTHEAD ====== */
+        .masthead {
+            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-primary) 100%);
+            border-bottom: 3px solid var(--accent-gold);
+            padding: 0;
+        }
+
+        .masthead-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 18px 24px 14px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .masthead-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .masthead-title {
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 1.5px;
+            line-height: 1.15;
+        }
+
+        .masthead-title span {
+            color: var(--accent-gold);
+        }
+
+        .masthead-subtitle {
+            font-size: 0.73rem;
+            color: #a0b0c8;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .masthead-meta {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+        }
+
+        .masthead-issn {
+            font-size: 0.72rem;
+            color: #8a9ab8;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .masthead-issn strong {
+            color: #c0ccdd;
+        }
+
+        .masthead-publisher {
+            font-size: 0.65rem;
+            color: #6a7a98;
+            letter-spacing: 0.5px;
+        }
+
+        /* ====== NAVBAR ====== */
+        .navbar {
+            background: var(--navy-medium);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .navbar-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 11px 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #b0c0d8;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.04);
+        }
+
+        .nav-link.active {
+            color: var(--white);
+            border-bottom-color: var(--accent-gold);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .nav-link + .nav-link {
+            margin-left: 1px;
+        }
+
+        /* ====== PAGE CONTAINER ====== */
+        .page-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 24px 24px 60px;
+        }
+
+        /* ====== DUAL COLUMN LAYOUT ====== */
+        .dual-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        .main-pane {
+            min-width: 0;
+        }
+
+        /* ====== SIDEBAR ====== */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .sidebar-block {
+            background: var(--white);
+            border: 1px solid var(--slate-border);
+            margin-bottom: -1px;
+        }
+
+        .sidebar-block:first-child {
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+
+        .sidebar-block:last-child {
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+
+        .sidebar-header {
+            background: var(--navy-primary);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            padding: 10px 16px;
+        }
+
+        .sidebar-body {
+            padding: 14px 16px;
+        }
+
+        .sidebar-link {
+            display: block;
+            padding: 7px 0;
+            font-size: 0.8rem;
+            color: var(--link-blue);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--slate-light);
+            font-weight: 500;
+        }
+
+        .sidebar-link:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-link:hover {
+            color: var(--navy-primary);
+            text-decoration: underline;
+        }
+
+        .sidebar-btn {
+            display: block;
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 6px;
+            background: var(--navy-primary);
+            color: var(--white);
+            border: none;
+            font-size: 0.76rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.15s;
+            border-radius: 2px;
+        }
+
+        .sidebar-btn:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-btn:hover {
+            background: var(--navy-light);
+        }
+
+        .sidebar-btn.outline {
+            background: var(--white);
+            color: var(--navy-primary);
+            border: 1px solid var(--navy-primary);
+        }
+
+        .sidebar-btn.outline:hover {
+            background: var(--navy-primary);
+            color: var(--white);
+        }
+
+        .index-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            margin: 3px 4px 3px 0;
+            background: var(--off-white);
+            border: 1px solid var(--slate-border);
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            border-radius: 2px;
+        }
+
+        .index-badge.highlight {
+            background: var(--navy-primary);
+            color: var(--white);
+            border-color: var(--navy-primary);
+        }
+
+        /* ====== CONTENT CARDS ====== */
+        .content-card {
+            background: var(--white);
+            border: 1px solid var(--slate-border);
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .content-card-header {
+            background: var(--navy-primary);
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .content-card-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        .content-card-header .badge {
+            font-size: 0.65rem;
+            background: var(--accent-gold);
+            color: var(--white);
+            padding: 3px 10px;
+            border-radius: 2px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .content-card-body {
+            padding: 20px;
+        }
+
+        /* ====== ABOUT SECTION ====== */
+        .about-text {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        .policy-item {
+            padding: 12px 14px;
+            background: var(--off-white);
+            border: 1px solid var(--slate-light);
+            border-left: 3px solid var(--navy-primary);
+        }
+
+        .policy-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .policy-value {
+            font-size: 0.82rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* ====== TABLE OF CONTENTS (ARTICLE LISTINGS) ====== */
+        .toc-article {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--slate-light);
+        }
+
+        .toc-article:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .toc-article:first-child {
+            padding-top: 0;
+        }
+
+        .article-type {
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy-primary);
+            line-height: 1.45;
+            margin-bottom: 8px;
+        }
+
+        .article-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .article-title a:hover {
+            color: var(--link-blue);
+            text-decoration: underline;
+        }
+
+        .article-authors {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+
+        .article-authors .author-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .article-authors .affiliation {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.73rem;
+        }
+
+        .article-abstract {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin: 10px 0;
+            padding: 10px 14px;
+            background: var(--off-white);
+            border-left: 3px solid var(--slate-border);
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .jel-codes, .keywords-list {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .jel-codes strong, .keywords-list strong {
+            color: var(--text-secondary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.65rem;
+        }
+
+        .article-pages {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .btn-pdf {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 16px;
+            background: var(--accent-red);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 2px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .btn-pdf:hover {
+            background: #6b1414;
+        }
+
+        .btn-pdf .icon {
+            font-size: 0.8rem;
+        }
+
+        .doi-link {
+            font-size: 0.7rem;
+            color: var(--link-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .doi-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ====== ARCHIVES VIEW ====== */
+        .archive-year-group {
+            margin-bottom: 24px;
+        }
+
+        .archive-year-header {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy-primary);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--navy-primary);
+            margin-bottom: 12px;
+        }
+
+        .archive-issue {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 14px 16px;
+            background: var(--white);
+            border: 1px solid var(--slate-border);
+            margin-bottom: 8px;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .archive-issue:hover {
+            border-color: var(--navy-primary);
+            box-shadow: 0 1px 4px rgba(10,22,40,0.08);
+        }
+
+        .archive-cover {
+            width: 60px;
+            height: 78px;
+            background: var(--navy-primary);
+            border: 1px solid var(--slate-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border-radius: 2px;
+        }
+
+        .archive-cover-text {
+            color: var(--white);
+            font-size: 0.5rem;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+            padding: 4px;
+        }
+
+        .archive-cover-text .vol-num {
+            font-size: 0.75rem;
+            display: block;
+            margin-top: 2px;
+            color: var(--accent-gold);
+        }
+
+        .archive-info {
+            flex: 1;
+        }
+
+        .archive-issue-title {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--navy-primary);
+            margin-bottom: 4px;
+        }
+
+        .archive-issue-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .archive-issue-title a:hover {
+            text-decoration: underline;
+        }
+
+        .archive-issue-detail {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+        }
+
+        .archive-issue-detail strong {
+            color: var(--text-secondary);
+        }
+
+        /* ====== SUBMISSION VIEW ====== */
+        .submission-full-width {
+            max-width: 900px;
+        }
+
+        .steps-nav {
+            display: flex;
+            border-bottom: 2px solid var(--slate-border);
+            margin-bottom: 24px;
+            background: var(--white);
+            border: 1px solid var(--slate-border);
+            border-radius: 3px 3px 0 0;
+            overflow: hidden;
+        }
+
+        .step-tab {
+            flex: 1;
+            padding: 14px 16px;
+            text-align: center;
+            font-size: 0.73rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            background: var(--off-white);
+            border-right: 1px solid var(--slate-border);
+            cursor: pointer;
+            transition: all 0.15s;
+            position: relative;
+        }
+
+        .step-tab:last-child {
+            border-right: none;
+        }
+
+        .step-tab .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--slate-border);
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            font-weight: 800;
+            margin-right: 6px;
+        }
+
+        .step-tab.active {
+            background: var(--white);
+            color: var(--navy-primary);
+            border-bottom: 3px solid var(--navy-primary);
+        }
+
+        .step-tab.active .step-num {
+            background: var(--navy-primary);
+            color: var(--white);
+        }
+
+        .step-tab.completed .step-num {
+            background: var(--accent-green);
+            color: var(--white);
+        }
+
+        .step-tab.completed {
+            color: var(--accent-green);
+        }
+
+        .step-content {
+            display: none;
+            background: var(--white);
+            border: 1px solid var(--slate-border);
+            border-top: none;
+            border-radius: 0 0 3px 3px;
+            padding: 28px 24px;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        .step-title {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy-primary);
+            margin-bottom: 6px;
+        }
+
+        .step-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.55;
+        }
+
+        /* Checklist */
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 12px 14px;
+            background: var(--off-white);
+            border: 1px solid var(--slate-light);
+            margin-bottom: 6px;
+            border-radius: 2px;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            margin-top: 2px;
+            accent-color: var(--navy-primary);
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .checklist-item label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        /* File Upload */
+        .file-drop-zone {
+            border: 2px dashed var(--slate-border);
+            background: var(--off-white);
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .file-drop-zone:hover,
+        .file-drop-zone.dragover {
+            border-color: var(--navy-primary);
+            background: #eef1f6;
+        }
+
+        .file-drop-icon {
+            font-size: 2.5rem;
+            color: var(--slate-muted);
+            margin-bottom: 10px;
+        }
+
+        .file-drop-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .file-drop-sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        .file-drop-btn {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 24px;
+            background: var(--navy-primary);
+            color: var(--white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+
+        .file-info {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            border-radius: 2px;
+            font-size: 0.78rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            display: none;
+        }
+
+        .file-requirements {
+            margin-top: 16px;
+            padding: 12px 14px;
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-left: 3px solid var(--accent-gold);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .file-requirements strong {
+            color: var(--accent-gold);
+        }
+
+        /* Form Inputs */
+        .form-section {
+            margin-bottom: 22px;
+        }
+
+        .form-section-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--navy-primary);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--slate-light);
+            margin-bottom: 14px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.73rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group label .required {
+            color: var(--accent-red);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 9px 12px;
+            border: 1px solid var(--slate-border);
+            border-radius: 2px;
+            font-size: 0.82rem;
+            font-family: 'Inter', Arial, sans-serif;
+            color: var(--text-primary);
+            background: var(--white);
+            transition: border-color 0.15s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--navy-primary);
+            box-shadow: 0 0 0 2px rgba(10,22,40,0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-hint {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+            font-style: italic;
+        }
+
+        /* Step Navigation Buttons */
+        .step-nav-btns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 28px;
+            padding-top: 18px;
+            border-top: 1px solid var(--slate-light);
+        }
+
+        .btn-step {
+            padding: 10px 28px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background 0.15s;
+        }
+
+        .btn-step.primary {
+            background: var(--navy-primary);
+            color: var(--white);
+        }
+
+        .btn-step.primary:hover {
+            background: var(--navy-light);
+        }
+
+        .btn-step.secondary {
+            background: var(--off-white);
+            color: var(--text-secondary);
+            border: 1px solid var(--slate-border);
+        }
+
+        .btn-step.secondary:hover {
+            background: var(--slate-light);
+        }
+
+        .btn-step.submit {
+            background: var(--accent-green);
+            color: var(--white);
+            padding: 12px 36px;
+            font-size: 0.82rem;
+        }
+
+        .btn-step.submit:hover {
+            background: #145530;
+        }
+
+        /* Review Summary */
+        .review-summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        .review-summary-table th,
+        .review-summary-table td {
+            padding: 10px 14px;
+            text-align: left;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--slate-light);
+        }
+
+        .review-summary-table th {
+            width: 180px;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.68rem;
+            letter-spacing: 1px;
+            background: var(--off-white);
+        }
+
+        .review-summary-table td {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .confirmation-box {
+            padding: 16px 20px;
+            background: var(--off-white);
+            border: 1px solid var(--slate-border);
+            border-left: 4px solid var(--navy-primary);
+            margin: 20px 0;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ====== VIEW CONTAINERS ====== */
+        .view-section {
+            display: none;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        /* ====== BREADCRUMB ====== */
+        .breadcrumb {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--slate-light);
+        }
+
+        .breadcrumb a {
+            color: var(--link-blue);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 6px;
+            color: var(--slate-border);
+        }
+
+        /* ====== FOOTER ====== */
+        .site-footer {
+            background: var(--navy-dark);
+            border-top: 3px solid var(--accent-gold);
+            padding: 24px 0;
+            margin-top: 40px;
+        }
+
+        .footer-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-text {
+            font-size: 0.7rem;
+            color: #6a7a98;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-text a {
+            color: #8a9ab8;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-ojs {
+            font-size: 0.65rem;
+            color: #4a5a78;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 900px) {
+            .dual-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                order: -1;
+            }
+
+            .masthead-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .masthead-meta {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .policy-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-nav {
+                flex-wrap: wrap;
+            }
+
+            .step-tab {
+                flex: none;
+                width: 50%;
+            }
+
+            .navbar-inner {
+                flex-wrap: wrap;
+            }
+
+            .archive-issue {
+                flex-direction: column;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            html {
+                font-size: 14px;
+            }
+
+            .masthead-title {
+                font-size: 1.5rem;
+            }
+
+            .step-tab {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--slate-border);
+            }
+
+            .nav-link {
+                padding: 10px 14px;
+                font-size: 0.72rem;
+            }
+
+            .content-card-body {
+                padding: 14px;
+            }
+
+            .article-meta-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* ====== HIDDEN FILE INPUT ====== */
+        #fileInput {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== MASTHEAD ====== -->
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="masthead-brand">
+                <div class="masthead-title">SPH <span>Journal</span></div>
+                <div class="masthead-subtitle">Studies in Policy &amp; Health Economics</div>
+            </div>
+            <div class="masthead-meta">
+                <div class="masthead-issn"><strong>ISSN (Print):</strong> 2075-6534 &nbsp;|&nbsp; <strong>ISSN (Online):</strong> 2706-9141</div>
+                <div class="masthead-publisher">Published by the School of Public Health &amp; Policy Sciences</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a class="nav-link active" data-view="home" onclick="switchView('home')">Home & Current Issue</a>
+            <a class="nav-link" data-view="archives" onclick="switchView('archives')">Archives</a>
+            <a class="nav-link" data-view="submission" onclick="switchView('submission')">Submit Manuscript</a>
+        </div>
+    </nav>
+
+    <!-- ====== PAGE CONTAINER ====== -->
+    <div class="page-container">
+
+        <!-- ==================== HOME VIEW ==================== -->
+        <div id="view-home" class="view-section active">
+            <div class="breadcrumb">
+                <a href="#" onclick="switchView('home'); return false;">Home</a>
+                <span>›</span>
+                Current Issue
+            </div>
+
+            <div class="dual-layout">
+                <!-- MAIN PANE -->
+                <div class="main-pane">
+                    <!-- About the Journal -->
+                    <div class="content-card">
+                        <div class="content-card-header">
+                            <h2>About the Journal</h2>
+                        </div>
+                        <div class="content-card-body">
+                            <p class="about-text">
+                                <strong>SPH Journal (Studies in Policy &amp; Health Economics)</strong> is a peer-reviewed, open-access scholarly publication dedicated to advancing rigorous empirical and theoretical research in the fields of health economics, public policy analysis, health systems financing, and socioeconomic determinants of population health. The journal serves as a critical forum for economists, policy researchers, and health systems analysts working at the intersection of economic theory and evidence-based policy formulation.
+                            </p>
+                            <p class="about-text" style="margin-top:10px;">
+                                All manuscripts undergo a <strong>double-blind external peer review process</strong> administered by an independent editorial committee. Authors are required to submit blinded manuscripts to ensure the integrity and impartiality of the evaluation. The journal adheres to the guidelines established by the Committee on Publication Ethics (COPE) and maintains strict standards of academic integrity and reproducibility.
+                            </p>
+                            <div class="policy-grid">
+                                <div class="policy-item">
+                                    <div class="policy-label">Peer Review Policy</div>
+                                    <div class="policy-value">Double-Blind External Peer Review</div>
+                                </div>
+                                <div class="policy-item">
+                                    <div class="policy-label">Publication Frequency</div>
+                                    <div class="policy-value">Bi-Annual (June &amp; December)</div>
+                                </div>
+                                <div class="policy-item">
+                                    <div class="policy-label">Article Processing Charge</div>
+                                    <div class="policy-value">No APC — Fully Subsidized</div>
+                                </div>
+                                <div class="policy-item">
+                                    <div class="policy-label">Licensing</div>
+                                    <div class="policy-value">CC BY-NC 4.0 International</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Issue -->
+                    <div class="content-card">
+                        <div class="content-card-header">
+                            <h2>Current Issue — Table of Contents</h2>
+                            <span class="badge">Vol. 14 No. 2 (2026)</span>
+                        </div>
+                        <div class="content-card-body">
+                            <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:18px;">
+                                Published: December 2026 &nbsp;&bull;&nbsp; Full Issue DOI: <a href="#" class="doi-link">10.36923/sphj.v14i2</a>
+                            </p>
+
+                            <!-- Article 1 -->
+                            <div class="toc-article">
+                                <div class="article-type">Original Research Article</div>
+                                <h3 class="article-title">
+                                    <a href="#">Fiscal Multiplier Effects of Public Health Expenditure on Provincial GDP Growth: A Dynamic Panel Analysis of Emerging South Asian Economies, 2005–2024</a>
+                                </h3>
+                                <div class="article-authors">
+                                    <span class="author-name">Muhammad Arslan Khalid</span>, <span class="author-name">Fatima Zahra Bhatti</span>
+                                    <br><span class="affiliation">Department of Economics, Quaid-i-Azam University, Islamabad, Pakistan</span>
+                                </div>
+                                <div class="article-abstract">
+                                    This study examines the heterogeneous fiscal multiplier effects of disaggregated public health expenditure—specifically preventive care allocations, hospital infrastructure investments, and pharmaceutical subsidies—on provincial-level GDP growth across six South Asian emerging economies. Employing a system-GMM dynamic panel estimator with Windmeijer-corrected standard errors to address endogeneity and persistence bias, the analysis reveals that preventive care spending generates a statistically significant multiplier of 1.42 (p < 0.01) over a three-year horizon, substantially exceeding the multiplier associated with curative care infrastructure (0.87). Results are robust to alternative instrument specifications and Hadri panel stationarity diagnostics…
+                                </div>
+                                <div class="article-meta-row">
+                                    <div class="jel-codes"><strong>JEL:</strong> H51, I15, O47, C33</div>
+                                    <div class="keywords-list"><strong>Keywords:</strong> fiscal multiplier, health expenditure, system-GMM, South Asia, panel data</div>
+                                    <div class="article-pages">pp. 127–158</div>
+                                    <a href="#" class="btn-pdf"><span class="icon">⬇</span> PDF</a>
+                                </div>
+                            </div>
+
+                            <!-- Article 2 -->
+                            <div class="toc-article">
+                                <div class="article-type">Original Research Article</div>
+                                <h3 class="article-title">
+                                    <a href="#">Out-of-Pocket Catastrophic Health Expenditure and Household Poverty Transitions: Micro-Econometric Evidence from the Pakistan Social and Living Standards Measurement Survey</a>
+                                </h3>
+                                <div class="article-authors">
+                                    <span class="author-name">Sana Riaz</span>, <span class="author-name">Ahmed Raza Cheema</span>, <span class="author-name">Nadia Tahir</span>
+                                    <br><span class="affiliation">Pakistan Institute of Development Economics (PIDE), Islamabad</span>;
+                                    <span class="affiliation">Department of Health Economics, University of the Punjab, Lahore</span>
+                                </div>
+                                <div class="article-abstract">
+                                    Using three successive waves of the Pakistan Social and Living Standards Measurement (PSLM) survey (2014–2023), this paper estimates the probability of household transitions into multidimensional poverty as a consequence of catastrophic out-of-pocket (OOP) health expenditure. Applying a probit model with Heckman selection correction and instrumental variable strategies to account for non-random health-seeking behavior, we find that households exceeding the 40% threshold of non-food expenditure on healthcare face a 34 percentage-point higher probability of downward poverty transition. Rural households and those headed by informal-sector workers exhibit significantly greater vulnerability…
+                                </div>
+                                <div class="article-meta-row">
+                                    <div class="jel-codes"><strong>JEL:</strong> I14, I32, D12, C35</div>
+                                    <div class="keywords-list"><strong>Keywords:</strong> catastrophic health expenditure, poverty transitions, probit, PSLM, OOP payments</div>
+                                    <div class="article-pages">pp. 159–189</div>
+                                    <a href="#" class="btn-pdf"><span class="icon">⬇</span> PDF</a>
+                                </div>
+                            </div>
+
+                            <!-- Article 3 -->
+                            <div class="toc-article">
+                                <div class="article-type">Original Research Article</div>
+                                <h3 class="article-title">
+                                    <a href="#">Universal Health Coverage and Allocative Efficiency in Sub-Saharan Africa: A Non-Parametric Frontier Analysis of National Health Insurance Schemes</a>
+                                </h3>
+                                <div class="article-authors">
+                                    <span class="author-name">Oluwaseun Adeyemi</span>, <span class="author-name">Grace Mwangi</span>
+                                    <br><span class="affiliation">School of Health Systems and Public Health, University of Pretoria, South Africa</span>
+                                </div>
+                                <div class="article-abstract">
+                                    This study evaluates the allocative efficiency of national health insurance schemes (NHIS) across 28 Sub-Saharan African nations using Data Envelopment Analysis (DEA) combined with a Simar-Wilson bootstrapped truncated regression at the second stage. Health system inputs—total health expenditure per capita, physician density, and hospital bed ratios—are modeled against composite UHC service coverage indices and under-five mortality rates. Findings indicate that only seven countries operate on the efficient frontier, while the mean technical efficiency score stands at 0.68, suggesting a potential 32% improvement in coverage outcomes without additional resource mobilization…
+                                </div>
+                                <div class="article-meta-row">
+                                    <div class="jel-codes"><strong>JEL:</strong> I11, I18, H42, O55</div>
+                                    <div class="keywords-list"><strong>Keywords:</strong> UHC, DEA, allocative efficiency, NHIS, Sub-Saharan Africa</div>
+                                    <div class="article-pages">pp. 190–221</div>
+                                    <a href="#" class="btn-pdf"><span class="icon">⬇</span> PDF</a>
+                                </div>
+                            </div>
+
+                            <!-- Article 4 -->
+                            <div class="toc-article">
+                                <div class="article-type">Policy Analysis</div>
+                                <h3 class="article-title">
+                                    <a href="#">Regulatory Impact Assessment of Tobacco Taxation Policies on Smoking Prevalence and Government Revenue: A Structural Vector Autoregressive Approach for OECD Economies</a>
+                                </h3>
+                                <div class="article-authors">
+                                    <span class="author-name">Henrik Johansson</span>, <span class="author-name">Laura Méndez García</span>
+                                    <br><span class="affiliation">Institute of Health Policy &amp; Management, Erasmus University Rotterdam, The Netherlands</span>;
+                                    <span class="affiliation">Department of Fiscal Economics, Universidad Complutense de Madrid, Spain</span>
+                                </div>
+                                <div class="article-abstract">
+                                    Employing a structural vector autoregressive (SVAR) framework with sign restrictions and Cholesky identification, this paper quantifies the dual impact pathway of ad valorem and specific tobacco excise tax increases on smoking prevalence rates and exchequer revenue across 24 OECD economies (2000–2024). Impulse response functions indicate that a one-standard-deviation positive shock to effective tobacco tax rates reduces age-standardized smoking prevalence by 2.1 percentage points within four years, while net fiscal revenue increases by an estimated 0.3% of GDP in the short run before exhibiting a Laffer-curve trajectory…
+                                </div>
+                                <div class="article-meta-row">
+                                    <div class="jel-codes"><strong>JEL:</strong> H21, I18, C32, D04</div>
+                                    <div class="keywords-list"><strong>Keywords:</strong> tobacco taxation, SVAR, smoking prevalence, OECD, Laffer curve</div>
+                                    <div class="article-pages">pp. 222–251</div>
+                                    <a href="#" class="btn-pdf"><span class="icon">⬇</span> PDF</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIDEBAR -->
+                <aside class="sidebar" id="sidebar-home">
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">User Portal</div>
+                        <div class="sidebar-body">
+                            <a href="#" class="sidebar-link">Log In</a>
+                            <a href="#" class="sidebar-link">Register as Author</a>
+                            <a href="#" class="sidebar-link">Register as Reviewer</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">Actions</div>
+                        <div class="sidebar-body">
+                            <a class="sidebar-btn" onclick="switchView('submission')">Make a Submission</a>
+                            <a href="#" class="sidebar-btn outline">Become a Reviewer</a>
+                            <a href="#" class="sidebar-btn outline">Editorial Board</a>
+                            <a href="#" class="sidebar-btn outline">Ethical Guidelines</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">Indexing &amp; Abstracting</div>
+                        <div class="sidebar-body">
+                            <span class="index-badge highlight">Scopus</span>
+                            <span class="index-badge highlight">HEC Recognized</span>
+                            <span class="index-badge">EconLit</span>
+                            <span class="index-badge">DOAJ</span>
+                            <span class="index-badge">RePEc</span>
+                            <span class="index-badge">CrossRef</span>
+                            <span class="index-badge">Google Scholar</span>
+                            <span class="index-badge">EBSCOhost</span>
+                            <span class="index-badge">CNKI</span>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">Journal Metrics</div>
+                        <div class="sidebar-body">
+                            <div style="margin-bottom:8px;">
+                                <div class="policy-label">CiteScore (2025)</div>
+                                <div class="policy-value" style="font-size:1.1rem; color:var(--navy-primary);">3.8</div>
+                            </div>
+                            <div style="margin-bottom:8px;">
+                                <div class="policy-label">SJR (2025)</div>
+                                <div class="policy-value">0.62 — Q2</div>
+                            </div>
+                            <div>
+                                <div class="policy-label">H-Index</div>
+                                <div class="policy-value">29</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">Current Issue</div>
+                        <div class="sidebar-body" style="text-align:center;">
+                            <div style="width:100%; height:120px; background:var(--navy-primary); display:flex; align-items:center; justify-content:center; border-radius:2px; margin-bottom:8px;">
+                                <div style="color:var(--white); text-align:center;">
+                                    <div style="font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; opacity:0.7;">SPH Journal</div>
+                                    <div style="font-size:1.2rem; font-weight:800; color:var(--accent-gold); margin-top:4px;">Vol. 14</div>
+                                    <div style="font-size:0.75rem; opacity:0.8;">No. 2 — 2026</div>
+                                </div>
+                            </div>
+                            <div style="font-size:0.72rem; color:var(--text-muted);">Published: December 2026</div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- ==================== ARCHIVES VIEW ==================== -->
+        <div id="view-archives" class="view-section">
+            <div class="breadcrumb">
+                <a href="#" onclick="switchView('home'); return false;">Home</a>
+                <span>›</span>
+                Archives
+            </div>
+
+            <div class="dual-layout">
+                <div class="main-pane">
+                    <div class="content-card">
+                        <div class="content-card-header">
+                            <h2>Journal Archives</h2>
+                            <span class="badge">2013–2026</span>
+                        </div>
+                        <div class="content-card-body">
+                            <p style="font-size:0.8rem; color:var(--text-muted); margin-bottom:24px; line-height:1.6;">
+                                Complete chronological archive of all published volumes and issues of SPH Journal. Each issue contains peer-reviewed research articles, policy analyses, and review papers. Click on any issue to access its table of contents and full-text articles.
+                            </p>
+
+                            <!-- 2026 -->
+                            <div class="archive-year-group">
+                                <div class="archive-year-header">2026</div>
+                                <div class="archive-issue">
+                                    <div class="archive-cover">
+                                        <div class="archive-cover-text">SPH<br>Journal<span class="vol-num">14(2)</span></div>
+                                    </div>
+                                    <div class="archive-info">
+                                        <div class="archive-issue-title"><a href="#" onclick="switchView('home'); return false;">Vol. 14 No. 2 (2026)</a></div>
+                                        <div class="archive-issue-detail">
+                                            <strong>Published:</strong> December 2026 &nbsp;&bull;&nbsp; <strong>Articles:</strong> 4 research papers, 1 policy brief<br>
+                                            <strong>Special Focus:</strong> Fiscal Multipliers and Health Systems Efficiency in Developing Economies<br>
+                                            <strong>DOI:</strong> <a href="#" class="doi-link">10.36923/sphj.v14i2</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="archive-issue">
+                                    <div class="archive-cover">
+                                        <div class="archive-cover-text">SPH<br>Journal<span class="vol-num">14(1)</span></div>
+                                    </div>
+                                    <div class="archive-info">
+                                        <div class="archive-issue-title"><a href="#">Vol. 14 No. 1 (2026)</a></div>
+                                        <div class="archive-issue-detail">
+                                            <strong>Published:</strong> June 2026 &nbsp;&bull;&nbsp; <strong>Articles:</strong> 5 research papers<br>
+                                            <strong>Special Focus:</strong> Digital Health Infrastructure Financing and Telemedicine Adoption Models<br>
+                                            <strong>DOI:</strong> <a href="#" class="doi-link">10.36923/sphj.v14i1</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2025 -->
+                            <div class="archive-year-group">
+                                <div class="archive-year-header">2025</div>
+                                <div class="archive-issue">
+                                    <div class="archive-cover">
+                                        <div class="archive-cover-text">SPH<br>Journal<span class="vol-num">13(2)</span></div>
+                                    </div>
+                                    <div class="archive-info">
+                                        <div class="archive-issue-title"><a href="#">Vol. 13 No. 2 (2025)</a></div>
+                                        <div class="archive-issue-detail">
+                                            <strong>Published:</strong> December 2025 &nbsp;&bull;&nbsp; <strong>Articles:</strong> 6 research papers, 2 review articles<br>
+                                            <strong>Special Focus:</strong> Post-Pandemic Health Expenditure Reallocation and Economic Recovery Pathways<br>
+                                            <strong>DOI:</strong> <a href="#" class="doi-link">10.36923/sphj.v13i2</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="archive-issue">
+                                    <div class="archive-cover">
+                                        <div class="archive-cover-text">SPH<br>Journal<span class="vol-num">13(1)</span></div>
+                                    </div>
+                                    <div class="archive-info">
+                                        <div class="archive-issue-title"><a href="#">Vol. 13 No. 1 (2025)</a></div>
+                                        <div class="archive-issue-detail">
+                                            <strong>Published:</strong> June 2025 &nbsp;&bull;&nbsp; <strong>Articles:</strong> 5 research papers, 1 policy commentary<br>
+                                            <strong>Special Focus:</strong> Climate Change Adaptation Costs and Public Health Budgeting in SIDS<br>
+                                            <strong>DOI:</strong> <a href="#" class="doi-link">10.36923/sphj.v13i1</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2024 -->
+                            <div class="archive-year-group">
+                                <div class="archive-year-header">2024</div>
+                                <div class="archive-issue">
+                                    <div class="archive-cover">
+                                        <div class="archive-cover-text">SPH<br>Journal<span class="vol-num">12(2)</span></div>
+                                    </div>
+                                    <div class="archive-info">
+                                        <div class="archive-issue-title"><a href="#">Vol. 12 No. 2 (2024)</a></div>
+                                        <div class="archive-issue-detail">
+                                            <strong>Published:</strong> December 2024 &nbsp;&bull;&nbsp; <strong>Articles:</strong> 7 research papers<br>
+                                            <strong>Special Focus:</strong> Pharmaceutical Market Regulation and Drug Price Elasticity in Low-Income Countries<br>
+                                            <strong>DOI:</strong> <a href="#" class="doi-link">10.36923/sphj.v12i2</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="archive-issue">
+                                    <div class="archive-cover">
+                                        <div class="archive-cover-text">SPH<br>Journal<span class="vol-num">12(1)</span></div>
+                                    </div>
+                                    <div class="archive-info">
+                                        <div class="archive-issue-title"><a href="#">Vol. 12 No. 1 (2024)</a></div>
+                                        <div class="archive-issue-detail">
+                                            <strong>Published:</strong> June 2024 &nbsp;&bull;&nbsp; <strong>Articles:</strong> 4 research papers, 1 systematic review<br>
+                                            <strong>Special Focus:</strong> Human Capital Formation and Return on Health Investment: Cross-Country Evidence<br>
+                                            <strong>DOI:</strong> <a href="#" class="doi-link">10.36923/sphj.v12i1</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2023 -->
+                            <div class="archive-year-group">
+                                <div class="archive-year-header">2023</div>
+                                <div class="archive-issue">
+                                    <div class="archive-cover">
+                                        <div class="archive-cover-text">SPH<br>Journal<span class="vol-num">11(2)</span></div>
+                                    </div>
+                                    <div class="archive-info">
+                                        <div class="archive-issue-title"><a href="#">Vol. 11 No. 2 (2023)</a></div>
+                                        <div class="archive-issue-detail">
+                                            <strong>Published:</strong> December 2023 &nbsp;&bull;&nbsp; <strong>Articles:</strong> 6 research papers<br>
+                                            <strong>Special Focus:</strong> Social Health Insurance Uptake and Moral Hazard in Middle-Income Economies<br>
+                                            <strong>DOI:</strong> <a href="#" class="doi-link">10.36923/sphj.v11i2</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="archive-issue">
+                                    <div class="archive-cover">
+                                        <div class="archive-cover-text">SPH<br>Journal<span class="vol-num">11(1)</span></div>
+                                    </div>
+                                    <div class="archive-info">
+                                        <div class="archive-issue-title"><a href="#">Vol. 11 No. 1 (2023)</a></div>
+                                        <div class="archive-issue-detail">
+                                            <strong>Published:</strong> June 2023 &nbsp;&bull;&nbsp; <strong>Articles:</strong> 5 research papers, 1 methodological note<br>
+                                            <strong>Special Focus:</strong> Econometric Methods for Health Technology Assessment<br>
+                                            <strong>DOI:</strong> <a href="#" class="doi-link">10.36923/sphj.v11i1</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIDEBAR (Archives) -->
+                <aside class="sidebar" id="sidebar-archives">
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">User Portal</div>
+                        <div class="sidebar-body">
+                            <a href="#" class="sidebar-link">Log In</a>
+                            <a href="#" class="sidebar-link">Register as Author</a>
+                            <a href="#" class="sidebar-link">Register as Reviewer</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">Actions</div>
+                        <div class="sidebar-body">
+                            <a class="sidebar-btn" onclick="switchView('submission')">Make a Submission</a>
+                            <a href="#" class="sidebar-btn outline">Become a Reviewer</a>
+                            <a href="#" class="sidebar-btn outline">Editorial Board</a>
+                        </div>
+                    </div>
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">Indexing &amp; Abstracting</div>
+                        <div class="sidebar-body">
+                            <span class="index-badge highlight">Scopus</span>
+                            <span class="index-badge highlight">HEC Recognized</span>
+                            <span class="index-badge">EconLit</span>
+                            <span class="index-badge">DOAJ</span>
+                            <span class="index-badge">RePEc</span>
+                            <span class="index-badge">CrossRef</span>
+                            <span class="index-badge">Google Scholar</span>
+                            <span class="index-badge">EBSCOhost</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-block">
+                        <div class="sidebar-header">Browse By Year</div>
+                        <div class="sidebar-body">
+                            <a href="#" class="sidebar-link">2026 (2 issues)</a>
+                            <a href="#" class="sidebar-link">2025 (2 issues)</a>
+                            <a href="#" class="sidebar-link">2024 (2 issues)</a>
+                            <a href="#" class="sidebar-link">2023 (2 issues)</a>
+                            <a href="#" class="sidebar-link">2022 (2 issues)</a>
+                            <a href="#" class="sidebar-link">2021 (2 issues)</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- ==================== SUBMISSION VIEW ==================== -->
+        <div id="view-submission" class="view-section">
+            <div class="breadcrumb">
+                <a href="#" onclick="switchView('home'); return false;">Home</a>
+                <span>›</span>
+                Manuscript Submission
+            </div>
+
+            <div class="submission-full-width">
+                <div class="content-card" style="margin-bottom:24px;">
+                    <div class="content-card-header">
+                        <h2>Online Manuscript Submission Portal</h2>
+                    </div>
+                    <div class="content-card-body" style="padding:14px 20px;">
+                        <p style="font-size:0.8rem; color:var(--text-secondary); line-height:1.6;">
+                            Submit your manuscript to <strong>SPH Journal</strong> through the structured intake pipeline below. All submissions must comply with the journal's author guidelines and undergo the double-blind peer review process. Please ensure your manuscript file is fully blinded (no author-identifying information) before uploading. Complete all four steps sequentially to finalize your submission.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STEP TABS -->
+                <div class="steps-nav">
+                    <div class="step-tab active" data-step="1" onclick="switchStep(1)">
+                        <span class="step-num">1</span> Checklist
+                    </div>
+                    <div class="step-tab" data-step="2" onclick="switchStep(2)">
+                        <span class="step-num">2</span> Upload
+                    </div>
+                    <div class="step-tab" data-step="3" onclick="switchStep(3)">
+                        <span class="step-num">3</span> Metadata
+                    </div>
+                    <div class="step-tab" data-step="4" onclick="switchStep(4)">
+                        <span class="step-num">4</span> Review & Submit
+                    </div>
+                </div>
+
+                <!-- STEP 1: CHECKLIST -->
+                <div class="step-content active" id="step-1">
+                    <div class="step-title">Submission Checklist &amp; Author Consent</div>
+                    <div class="step-desc">
+                        Please review and confirm each of the following requirements before proceeding. All items are mandatory and must be checked to advance to the next step.
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk1" class="submission-check">
+                        <label for="chk1">The submission has not been previously published, nor is it currently under consideration by another journal. In the event of simultaneous submission, the author(s) will immediately notify the Editor-in-Chief.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk2" class="submission-check">
+                        <label for="chk2">The manuscript file is submitted in Adobe PDF format (.pdf). Microsoft Word (.docx) files are accepted only upon prior approval from the editorial office.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk3" class="submission-check">
+                        <label for="chk3">The submitted manuscript has been fully blinded: all author names, institutional affiliations, acknowledgments, and self-referencing citations that could identify authorship have been removed or anonymized for the purpose of double-blind peer review.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk4" class="submission-check">
+                        <label for="chk4">All author metadata—including full names, institutional email addresses, departmental affiliations, and ORCID identifiers—has been accurately recorded in the metadata intake form (Step 3).</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk5" class="submission-check">
+                        <label for="chk5">The manuscript conforms to the referencing and formatting requirements outlined in the SPH Journal Author Guidelines, including APA 7th edition citation style, structured abstract (Objective, Methods, Results, Conclusions), and JEL classification codes.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk6" class="submission-check">
+                        <label for="chk6">The research has received appropriate ethical clearance from a recognized Institutional Review Board (IRB) or Ethics Committee where applicable, and a statement of ethical compliance is included in the manuscript.</label>
+                    </div>
+
+                    <div class="step-nav-btns">
+                        <div></div>
+                        <button class="btn-step primary" onclick="goToStep(2)">Continue to Upload &#8594;</button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: UPLOAD -->
+                <div class="step-content" id="step-2">
+                    <div class="step-title">Upload Blinded Manuscript</div>
+                    <div class="step-desc">
+                        Upload your fully blinded manuscript file below. The file must not contain any author-identifying information. Accepted format: PDF (preferred) or DOCX. Maximum file size: 15 MB.
+                    </div>
+
+                    <div class="file-drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click();">
+                        <div class="file-drop-icon">&#128196;</div>
+                        <div class="file-drop-text">Drag &amp; Drop Your Manuscript Here</div>
+                        <div class="file-drop-sub">or click to browse your file system</div>
+                        <button class="file-drop-btn" type="button">Select File</button>
+                    </div>
+                    <input type="file" id="fileInput" accept=".pdf,.docx,.doc">
+
+                    <div class="file-info" id="fileInfo"></div>
+
+                    <div class="file-requirements">
+                        <strong>&#9888; Important:</strong> The uploaded file must be a <strong>Blinded Manuscript</strong> — no author names, affiliations, or acknowledgments should appear anywhere in the document, including headers, footers, file metadata, or self-citations. Failure to blind the manuscript will result in the submission being returned to the corresponding author prior to peer review.
+                    </div>
+
+                    <div class="step-nav-btns">
+                        <button class="btn-step secondary" onclick="goToStep(1)">&#8592; Back</button>
+                        <button class="btn-step primary" onclick="goToStep(3)">Continue to Metadata &#8594;</button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: METADATA -->
+                <div class="step-content" id="step-3">
+                    <div class="step-title">Manuscript Metadata Intake</div>
+                    <div class="step-desc">
+                        Provide complete bibliographic and author metadata for your submission. This information is used for indexing, correspondence, and editorial processing. Fields marked with an asterisk (*) are required.
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-title">Article Information</div>
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label for="paperTitle">Paper Title <span class="required">*</span></label>
+                                <input type="text" id="paperTitle" placeholder="Enter full manuscript title">
+                                <div class="form-hint">Provide the complete, unabbreviated title of your manuscript as it should appear in publication.</div>
+                            </div>
+                        </div>
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label for="abstract">Abstract <span class="required">*</span></label>
+                                <textarea id="abstract" rows="6" placeholder="Enter structured abstract (Objective, Methods, Results, Conclusions) — 250 words maximum"></textarea>
+                                <div class="form-hint">Structured abstract required: Objective, Methods, Results, and Conclusions. Maximum 250 words.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-title">Primary / Corresponding Author Details</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="authorFirst">First Name <span class="required">*</span></label>
+                                <input type="text" id="authorFirst" placeholder="e.g., Muhammad Arslan">
+                            </div>
+                            <div class="form-group">
+                                <label for="authorLast">Last Name <span class="required">*</span></label>
+                                <input type="text" id="authorLast" placeholder="e.g., Khalid">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="authorEmail">Institutional Email <span class="required">*</span></label>
+                                <input type="email" id="authorEmail" placeholder="e.g., m.khalid@qau.edu.pk">
+                                <div class="form-hint">Must be an institutional (.edu / .ac) email address for correspondence purposes.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="authorOrcid">ORCID iD</label>
+                                <input type="text" id="authorOrcid" placeholder="e.g., 0000-0002-1825-0097">
+                                <div class="form-hint">16-digit ORCID identifier. Register at <a href="https://orcid.org" class="doi-link" target="_blank">orcid.org</a> if you do not have one.</div>
+                            </div>
+                        </div>
+                        <div class="form-row full">
+                            <div class="form-group">
+                                <label for="authorAffiliation">Institutional Affiliation <span class="required">*</span></label>
+                                <input type="text" id="authorAffiliation" placeholder="e.g., Department of Economics, Quaid-i-Azam University, Islamabad, Pakistan">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-section-title">Classification &amp; Keywords</div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="jelCodes">JEL Classification Codes <span class="required">*</span></label>
+                                <input type="text" id="jelCodes" placeholder="e.g., H51, I15, O47, C33">
+                                <div class="form-hint">Provide 3–5 JEL codes. Refer to the <a href="#" class="doi-link">AEA JEL Classification System</a>.</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="keywords">Keywords <span class="required">*</span></label>
+                                <input type="text" id="keywords" placeholder="e.g., fiscal multiplier, health expenditure, panel data">
+                                <div class="form-hint">Provide 4–6 keywords, separated by commas.</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="articleType">Article Type <span class="required">*</span></label>
+                                <select id="articleType">
+                                    <option value="">— Select Article Type —</option>
+                                    <option value="research">Original Research Article</option>
+                                    <option value="review">Review / Survey Article</option>
+                                    <option value="policy">Policy Analysis</option>
+                                    <option value="methodological">Methodological Note</option>
+                                    <option value="commentary">Commentary / Editorial</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="numAuthors">Number of Co-Authors</label>
+                                <select id="numAuthors">
+                                    <option value="1">1 (Single Author)</option>
+                                    <option value="2" selected>2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5+">5 or more</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-nav-btns">
+                        <button class="btn-step secondary" onclick="goToStep(2)">&#8592; Back</button>
+                        <button class="btn-step primary" onclick="goToStep(4)">Continue to Review &#8594;</button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: REVIEW & SUBMIT -->
+                <div class="step-content" id="step-4">
+                    <div class="step-title">Review &amp; Submit Manuscript</div>
+                    <div class="step-desc">
+                        Please review the summary of your submission details below. If any information is incorrect, use the "Back" button to return to the relevant step and make corrections before final submission.
+                    </div>
+
+                    <table class="review-summary-table">
+                        <tr>
+                            <th>Paper Title</th>
+                            <td id="review-title">—</td>
+                        </tr>
+                        <tr>
+                            <th>Article Type</th>
+                            <td id="review-type">—</td>
+                        </tr>
+                        <tr>
+                            <th>Corresponding Author</th>
+                            <td id="review-author">—</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td id="review-email">—</td>
+                        </tr>
+                        <tr>
+                            <th>Affiliation</th>
+                            <td id="review-affiliation">—</td>
+                        </tr>
+                        <tr>
+                            <th>ORCID iD</th>
+                            <td id="review-orcid">—</td>
+                        </tr>
+                        <tr>
+                            <th>JEL Codes</th>
+                            <td id="review-jel">—</td>
+                        </tr>
+                        <tr>
+                            <th>Keywords</th>
+                            <td id="review-keywords">—</td>
+                        </tr>
+                        <tr>
+                            <th>Manuscript File</th>
+                            <td id="review-file">—</td>
+                        </tr>
+                        <tr>
+                            <th>Checklist Status</th>
+                            <td id="review-checklist">—</td>
+                        </tr>
+                    </table>
+
+                    <div id="review-abstract-section" style="margin-top:16px;">
+                        <div style="font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); margin-bottom:6px;">Abstract</div>
+                        <div id="review-abstract" style="font-size:0.8rem; color:var(--text-secondary); line-height:1.6; padding:12px 14px; background:var(--off-white); border:1px solid var(--slate-light); border-left:3px solid var(--navy-primary);">—</div>
+                    </div>
+
+                    <div class="confirmation-box">
+                        <strong>Declaration:</strong> By clicking "Submit Manuscript" below, I confirm that the information provided is accurate, the manuscript is original and has not been submitted to any other publication, and I agree to the journal's terms of publication, peer review process, and open access licensing policy (CC BY-NC 4.0).
+                    </div>
+
+                    <div class="step-nav-btns">
+                        <button class="btn-step secondary" onclick="goToStep(3)">&#8592; Back to Metadata</button>
+                        <button class="btn-step submit" onclick="submitManuscript()">Submit Manuscript</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-text">
+                &copy; 2026 <strong>SPH Journal</strong> — Studies in Policy &amp; Health Economics. All rights reserved.<br>
+                Published by the <a href="#">School of Public Health &amp; Policy Sciences</a>. Licensed under CC BY-NC 4.0.
+            </div>
+            <div class="footer-ojs">
+                Platform: Open Journal Systems 3.4 &nbsp;&bull;&nbsp; Powered by PKP
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====== JAVASCRIPT ====== -->
+    <script>
+        // ===== VIEW SWITCHING =====
+        function switchView(viewName) {
+            // Hide all views
+            document.querySelectorAll('.view-section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Show target view
+            var target = document.getElementById('view-' + viewName);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Update navbar active state
+            document.querySelectorAll('.nav-link').forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('data-view') === viewName) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ===== STEP SWITCHING (SUBMISSION FORM) =====
+        var currentStep = 1;
+
+        function switchStep(stepNum) {
+            currentStep = stepNum;
+
+            // Update step tabs
+            document.querySelectorAll('.step-tab').forEach(function(tab) {
+                var tabStep = parseInt(tab.getAttribute('data-step'));
+                tab.classList.remove('active', 'completed');
+                if (tabStep === stepNum) {
+                    tab.classList.add('active');
+                } else if (tabStep < stepNum) {
+                    tab.classList.add('completed');
+                }
+            });
+
+            // Update step content
+            document.querySelectorAll('.step-content').forEach(function(content) {
+                content.classList.remove('active');
+            });
+            var targetStep = document.getElementById('step-' + stepNum);
+            if (targetStep) {
+                targetStep.classList.add('active');
+            }
+
+            // If step 4 (review), populate summary
+            if (stepNum === 4) {
+                populateReviewSummary();
+            }
+        }
+
+        function goToStep(stepNum) {
+            // Validation for step 1
+            if (currentStep === 1 && stepNum > 1) {
+                var checkboxes = document.querySelectorAll('.submission-check');
+                var allChecked = true;
+                checkboxes.forEach(function(cb) {
+                    if (!cb.checked) {
+                        allChecked = false;
+                    }
+                });
+                if (!allChecked) {
+                    alert('Please confirm all checklist items before proceeding to the next step.');
+                    return;
+                }
+            }
+
+            switchStep(stepNum);
+        }
+
+        // ===== FILE UPLOAD =====
+        var uploadedFileName = '';
+
+        var dropZone = document.getElementById('dropZone');
+        var fileInput = document.getElementById('fileInput');
+        var fileInfo = document.getElementById('fileInfo');
+
+        if (dropZone) {
+            dropZone.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+
+            dropZone.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+            });
+
+            dropZone.addEventListener('drop', function(e) {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                if (e.dataTransfer.files.length > 0) {
+                    handleFile(e.dataTransfer.files[0]);
+                }
+            });
+        }
+
+        if (fileInput) {
+            fileInput.addEventListener('change', function() {
+                if (this.files.length > 0) {
+                    handleFile(this.files[0]);
+                }
+            });
+        }
+
+        function handleFile(file) {
+            uploadedFileName = file.name;
+            var sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+            fileInfo.style.display = 'block';
+            fileInfo.innerHTML = '&#10003; File uploaded successfully: <strong>' + file.name + '</strong> (' + sizeMB + ' MB)';
+        }
+
+        // ===== POPULATE REVIEW SUMMARY =====
+        function populateReviewSummary() {
+            var title = document.getElementById('paperTitle').value || '(Not provided)';
+            var authorFirst = document.getElementById('authorFirst').value || '';
+            var authorLast = document.getElementById('authorLast').value || '';
+            var authorName = (authorFirst + ' ' + authorLast).trim() || '(Not provided)';
+            var email = document.getElementById('authorEmail').value || '(Not provided)';
+            var affiliation = document.getElementById('authorAffiliation').value || '(Not provided)';
+            var orcid = document.getElementById('authorOrcid').value || '(Not provided)';
+            var jel = document.getElementById('jelCodes').value || '(Not provided)';
+            var keywords = document.getElementById('keywords').value || '(Not provided)';
+            var abstract = document.getElementById('abstract').value || '(Not provided)';
+            var articleType = document.getElementById('articleType');
+            var typeText = articleType.options[articleType.selectedIndex].text || '(Not selected)';
+            if (!articleType.value) typeText = '(Not selected)';
+
+            var checkboxes = document.querySelectorAll('.submission-check');
+            var checkedCount = 0;
+            checkboxes.forEach(function(cb) { if (cb.checked) checkedCount++; });
+            var checklistStatus = checkedCount + '/' + checkboxes.length + ' items confirmed';
+            if (checkedCount === checkboxes.length) {
+                checklistStatus = '&#10003; All ' + checkboxes.length + ' items confirmed';
+            }
+
+            document.getElementById('review-title').textContent = title;
+            document.getElementById('review-type').textContent = typeText;
+            document.getElementById('review-author').textContent = authorName;
+            document.getElementById('review-email').textContent = email;
+            document.getElementById('review-affiliation').textContent = affiliation;
+            document.getElementById('review-orcid').textContent = orcid;
+            document.getElementById('review-jel').textContent = jel;
+            document.getElementById('review-keywords').textContent = keywords;
+            document.getElementById('review-file').textContent = uploadedFileName || '(No file uploaded)';
+            document.getElementById('review-checklist').innerHTML = checklistStatus;
+            document.getElementById('review-abstract').textContent = abstract;
+        }
+
+        // ===== SUBMIT MANUSCRIPT =====
+        function submitManuscript() {
+            // Basic validation
+            var title = document.getElementById('paperTitle').value;
+            var authorFirst = document.getElementById('authorFirst').value;
+            var authorLast = document.getElementById('authorLast').value;
+            var email = document.getElementById('authorEmail').value;
+
+            if (!title || !authorFirst || !authorLast || !email) {
+                alert('Please complete all required metadata fields (Title, Author Name, and Email) before submitting.');
+                return;
+            }
+
+            if (!uploadedFileName) {
+                if (!confirm('No manuscript file has been uploaded. Do you wish to proceed with submission without a file attachment?')) {
+                    return;
+                }
+            }
+
+            // Success notification
+            alert(
+                '✓ MANUSCRIPT SUBMITTED SUCCESSFULLY\n\n' +
+                'Submission Reference: SPH-2026-' + Math.floor(1000 + Math.random() * 9000) + '\n\n' +
+                'Title: ' + title + '\n' +
+                'Corresponding Author: ' + authorFirst + ' ' + authorLast + '\n\n' +
+                'Your manuscript has been received and assigned to the Editorial Office for initial screening. ' +
+                'You will receive a confirmation email at ' + email + ' within 48 hours with your submission tracking number.\n\n' +
+                'Expected timeline:\n' +
+                '• Desk Review: 5–7 business days\n' +
+                '• Peer Review: 6–8 weeks\n' +
+                '• Editorial Decision: 10–12 weeks\n\n' +
+                'Thank you for submitting to SPH Journal.'
+            );
+
+            // Reset to home
+            switchView('home');
+        }
+    </script>
+</body>
+</html>
